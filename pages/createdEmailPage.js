@@ -1,6 +1,7 @@
 const { By } = require('selenium-webdriver');
+const BasePage = require('./basePage');
 
-class CreatedEmailPage {
+class CreatedEmailPage extends BasePage {
   get copyEmail() {
     return By.xpath('//div[@class="tooltip"]//button[@class="md but text f24 egenbut"]');
   }

@@ -1,6 +1,7 @@
 const { By } = require('selenium-webdriver');
+const BasePage = require('./basePage');
 
-class CalcPage {
+class CalcPage extends BasePage {
   get switchFirstFrame() {
     return By.xpath('//*[@id="cloud-site"]/devsite-iframe/iframe');
   }
@@ -18,11 +19,11 @@ class CalcPage {
   }
 
   get selectFirstOption() {
-    return By.xpath('//*[@id="select_option_77"]/div[1]');
+    return By.xpath('//*[@id="select_option_77"]/div[@class="md-text"]');
   }
 
   get chooseSeries() {
-    return By.xpath('//md-select[@placeholder="Series"]//span[2]');
+    return By.xpath('//md-select[@placeholder="Series"]//span[@class="md-select-icon"]');
   }
 
   get selectN1Series() {
@@ -30,9 +31,8 @@ class CalcPage {
   }
 
   get chooseMachineType() {
-    return By.xpath('//md-select[@placeholder="Instance type"]//span[2]');
+    return By.xpath('//md-select[@placeholder="Instance type"]//span[@class="md-select-icon"]');
   }
-  //md-select[@placeholder="Instance type"]/md-select-value[@class="md-select-value"]
 
   get selectN1S8Type() {
     return By.xpath('//*[@value="CP-COMPUTEENGINE-VMIMAGE-N1-STANDARD-8"]');
@@ -42,13 +42,11 @@ class CalcPage {
     return By.xpath(
       '//md-checkbox[@ng-model="listingCtrl.computeServer.addGPUs"]//div[@class="md-label"]'
     );
-    //md-checkbox[@ng-model="listingCtrl.computeServer.addGPUs"]//div[@class="md-label"]
   }
 
   get chooseGPUType() {
     return By.xpath('//md-select[@placeholder="GPU type"]');
   }
-  //md-select[@placeholder="GPU type"]//span[2]
 
   get selectV100() {
     return By.xpath('//md-option[@value="NVIDIA_TESLA_V100"]');
@@ -65,7 +63,9 @@ class CalcPage {
   }
 
   get chooselocalSSD() {
-    return By.xpath('//md-select[@ng-model="listingCtrl.computeServer.ssd"]//span[2]');
+    return By.xpath(
+      '//md-select[@ng-model="listingCtrl.computeServer.ssd"]//span[@class="md-select-icon"]'
+    );
   }
 
   get selectSize() {
@@ -75,7 +75,7 @@ class CalcPage {
   }
 
   get chooseDatacenterLocation() {
-    return By.xpath('//md-select[@placeholder="Datacenter location"]//span[2]');
+    return By.xpath('//*[@id="select_value_label_73"]//span[@class="md-select-icon"]');
   }
 
   get selectFrankfurt() {
@@ -83,7 +83,7 @@ class CalcPage {
   }
 
   get chooseUsageTerm() {
-    return By.xpath('//md-select[@placeholder="Committed usage"]//span[2]');
+    return By.xpath('//*[@id="select_value_label_74"]//span[@class="md-select-icon"]');
   }
 
   get selectOneYear() {
